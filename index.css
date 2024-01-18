@@ -59,7 +59,7 @@ button:hover {
 
 .frame {
   background-color: #000;
-  border: solid 5vmin #eee;
+  border: solid 5px #eee;
   border-bottom-color: rgb(111, 78, 55);
   border-left-color: rgb(90, 68, 50);
   border-radius: 2px;
