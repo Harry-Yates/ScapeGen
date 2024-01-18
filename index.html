@@ -4,21 +4,40 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
-    <title></title>
+    <title>Powerpoint Image Creator - Generate PPT images with AI</title>
     <link
       rel="stylesheet"
       href="index.css" />
   </head>
   <body>
-    <h1>ArtMatch</h1>
+    <h1>PPTGen</h1>
     <div
       id="output-img"
       class="frame">
       <h2>Describe a famous painting without saying its name or the artist!</h2>
+      <!-- Placeholder for images -->
     </div>
     <textarea
-      placeholder="A woman with long brown hair..."
+      placeholder="Describe the scene..."
       id="instruction"></textarea>
+
+    <!-- Add this inside your <body> tag -->
+    <button
+      id="download-btn"
+      style="display: none">
+      Download Image
+    </button>
+
+    <select id="size-select">
+      <option value="1024x1024">Square</option>
+      <option value="1792x1024">Landscape</option>
+      <option value="1024x1792">Portrait</option>
+    </select>
+    <select id="style-select">
+      <option value="vivid">Vivid</option>
+      <option value="natural">Natural</option>
+    </select>
+
     <button id="submit-btn">Create</button>
     <script
       type="module"
