@@ -21,7 +21,6 @@ document
   .addEventListener("submit", async (event) => {
     event.preventDefault();
     toggleOverlay(false);
-    s;
 
     imageGenerator.style.background = "black";
     outputImgContainer.innerHTML = '<div class="loading">Loading...</div>';
