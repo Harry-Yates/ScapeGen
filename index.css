@@ -38,14 +38,14 @@ html {
 .image-generator {
   height: 100%;
   position: relative;
-  background-image: url("images/cat-background.png");
+  background-image: url("./images/cat-background.png");
   background-size: cover;
   z-index: 0;
 }
 
 /* Add this new class */
 .image-generator.default-background {
-  background-image: url("images/cat-background.png");
+  background-image: url("./images/cat-background.png");
 }
 
 /* Apply radial gradient only when there's no loaded image */
