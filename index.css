@@ -1,97 +1,152 @@
-html,
-body {
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  color: whitesmoke;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 12px;
-  background-image: linear-gradient(#333333, #222222);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
-h1 {
-  font-size: 25px;
-  margin-top: 25px;
-}
-
-h2 {
-  font-size: 16px;
-  margin: 0 40px;
+/* Header styles */
+.header {
   text-align: center;
-  font-weight: 400;
-  letter-spacing: 0.04em;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  right: 0;
+  z-index: 1;
 }
 
-textarea {
-  width: 280px;
-  box-sizing: border-box;
-  padding: 8px 15px;
-  border-radius: 5px;
-  resize: none;
-  height: 10em;
+.header__title {
+  margin: 0;
 }
 
-button {
-  margin-top: 8px;
-  background: #b2835a;
-  width: 280px;
-  padding: 15px 0;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  letter-spacing: 1.1px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+/* Main content styles */
+.main-content {
+  height: calc(
+    100vh - 0px
+  ); /* Adjust the height based on the header/footer size */
+  overflow: hidden;
 }
 
-button:hover {
-  background-color: #b2835a; /* Change background color on hover */
+.image-generator {
+  height: 100%;
+  position: relative;
+  background-image: url("images/cat-background.png");
+  background-size: cover;
+  z-index: 0;
 }
 
-.button-fetching {
-  background-color: #aaa; /* Grayed out */
-  cursor: progress; /* Loading cursor */
+/* Add this new class */
+.image-generator.default-background {
+  background-image: url("images/cat-background.png");
 }
 
-.frame {
-  background-color: #000;
-  border: solid 5px #eee;
-  border-bottom-color: rgb(111, 78, 55);
-  border-left-color: rgb(90, 68, 50);
-  border-radius: 2px;
-  border-right-color: rgb(90, 68, 40);
-  border-top-color: rgb(101, 78, 55);
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25) inset,
-    0 5px 10px 5px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
+/* Apply radial gradient only when there's no loaded image */
+.image-generator:not(.image-loaded)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.3) 30%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  z-index: 0;
+}
+
+.image-generator__output-img {
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80vmin; /* Responsive width */
-  height: 80vmin; /* Initial height, it will be overridden by media queries */
-  max-width: 100%; /* Make sure it does not overflow the body */
-  margin: 20px; /* Optional spacing */
+  position: relative;
+  flex-direction: column;
+  z-index: 1;
 }
 
-.frame img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* To keep aspect ratio of the image */
+/* Toolbox styles */
+.tool-box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(43, 40, 40, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 250px;
 }
 
-/* Media Queries for Landscape and Portrait specific adjustments */
-@media (orientation: landscape) {
-  .frame {
-    height: 56.25vmin; /* 16:9 aspect ratio */
-  }
+.form__group {
+  margin-bottom: 1rem;
 }
 
-@media (orientation: portrait) {
-  .frame {
-    height: 133.33vmin; /* 3:4 aspect ratio */
-  }
+.form__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.form__textarea,
+.form__select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.form__button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #ea8818;
+  cursor: pointer;
+}
+
+.form__button--fetching {
+  background-color: #a8a8a8;
+  cursor: not-allowed;
+}
+
+.disabled-text {
+  color: #6c757d;
+}
+
+.form__button--submit {
+  margin-bottom: 1rem;
+}
+
+.form__button--download {
+  display: none;
+  background-color: #28a745;
+}
+
+/* Footer styles */
+.footer {
+  padding: 1rem;
+  /* background-color: rgba(255, 255, 255, 0.9); */
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.footer__text {
+  margin: 0;
+  color: #fff;
 }
