@@ -26,7 +26,7 @@ document
 
     submitBtn.classList.add("form__button--fetching");
     submitBtn.innerHTML =
-      '<span class="form__button--fetching-text">Generating Image ...</span>';
+      '<span class="form__button--fetching-text">Generating Creative ...</span>';
     submitBtn.classList.add("form__button--fetching");
 
     const prompt = instructionInput.value;
