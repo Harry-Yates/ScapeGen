@@ -1,25 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ScapeGen - Generate professional images with AI technology." />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
-    <title></title>
     <link
       rel="stylesheet"
       href="index.css" />
+    <title>ScapeGen - Generate professional images with AI technology.</title>
   </head>
   <body>
-    <h1>ArtMatch</h1>
-    <div
-      id="output-img"
-      class="frame">
-      <h2>Describe a famous painting without saying its name or the artist!</h2>
-    </div>
-    <textarea
-      placeholder="A woman with long brown hair..."
-      id="instruction"></textarea>
-    <button id="submit-btn">Create</button>
+    <!-- <header class="header">
+      <h1 class="header__title">ScapeGen</h1>
+      <span>Generate professional images with AI technology.</span>
+    </header> -->
+
+    <main class="main-content">
+      <div class="image-generator default-background">
+        <div class="image-generator__output-img">
+          <!-- <h2 class="image-generator__description-heading">
+            Visualize Your Ideas
+          </h2>
+          <p class="image-generator__description-text">
+            Describe the scene, select your preferences, and generate a custom
+            image for your presentation.
+          </p> -->
+        </div>
+
+        <div class="tool-box">
+          <form
+            class="form"
+            id="image-form">
+            <div class="form__group">
+              <label
+                for="instruction"
+                class="form__label"
+                >Description</label
+              >
+              <textarea
+                id="instruction"
+                class="form__textarea"
+                placeholder="Describe the scene..."></textarea>
+            </div>
+
+            <div class="form__group">
+              <label
+                for="size-select"
+                class="form__label"
+                >Size</label
+              >
+              <select
+                id="size-select"
+                class="form__select">
+                <option value="1792x1024">Landscape</option>
+                <option value="1024x1792">Portrait</option>
+                <option value="1024x1024">Square</option>
+              </select>
+            </div>
+
+            <div class="form__group">
+              <label
+                for="style-select"
+                class="form__label"
+                >Style</label
+              >
+              <select
+                id="style-select"
+                class="form__select">
+                <option value="vivid">Vivid</option>
+                <option value="natural">Natural</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              id="submit-btn"
+              class="form__button form__button--submit">
+              Create
+            </button>
+            <button
+              type="button"
+              id="download-btn"
+              class="form__button form__button--download"
+              style="display: none">
+              Download Image
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">&copy; 2024 ScrapeGen. All rights reserved.</p>
+    </footer>
+
     <script
       type="module"
       src="index.js"></script>
