@@ -24,6 +24,7 @@ document
 
     imageGenerator.style.background = "black";
 
+    submitBtn.disabled = true;
     submitBtn.classList.add("form__button--fetching");
     submitBtn.innerHTML =
       '<span class="form__button--fetching-text">Generating Creative ...</span>';
@@ -36,6 +37,7 @@ document
 
     toggleOverlay(true);
 
+    submitBtn.disabled = false;
     submitBtn.innerHTML =
       '<span class="form__button--fetching-text">Create</span>';
     submitBtn.classList.remove("form__button--fetching");
