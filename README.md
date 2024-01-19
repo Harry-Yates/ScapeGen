@@ -1,6 +1,6 @@
 # ScapeGen
 
-**ScapeGen** is a dynamic image generation tool, leveraging the powerful capabilities of DALL-E 3 to produce images in different aspects: landscape, portrait, and square. It's the perfect for quickly generating visuals for presentations, mockups, or any project that requires a creative touch.
+**ScapeGen** is a dynamic image generation tool, leveraging the powerful capabilities of DALL-E 3 to produce images in different aspects: landscape, portrait, and square. It's handy for quickly generating visuals for presentations, mockups, or any project that requires a creative touch.
 
 ![ScapeGen Demo](https://github.com/Harry-Yates/ScapeGen/blob/main/images/cat_github.png)
 
@@ -53,7 +53,7 @@ To use **ScapeGen**, follow these steps:
    ```sh
    npm start
    ```
-2. Navigate to `http://localhost:3000/` (or the configured port).
+2. Navigate to `http://localhost:5173/` (or the configured port).
 
 3. Enter your image generation prompt, select the desired size and style, and hit the "Create" button.
 
