@@ -53,7 +53,7 @@ async function generateImage(prompt, size, style) {
       style: style,
       response_format: "b64_json",
     });
-    console.log(response);
+    // console.log(response);
     const imageUrl = `data:image/png;base64,${response.data[0].b64_json}`;
     outputImgContainer.innerHTML = `<img src="${imageUrl}" class="generated-image" alt="AI generated content">`;
     setupDownloadButton(imageUrl);
