@@ -33,7 +33,6 @@
             image for your presentation.
           </p> -->
         </div>
-
         <div class="tool-box">
           <form
             class="form"
@@ -49,7 +48,6 @@
                 class="form__textarea"
                 placeholder="Describe the scene..."></textarea>
             </div>
-
             <div class="form__group">
               <label
                 for="size-select"
@@ -79,12 +77,15 @@
               </select>
             </div>
 
+            <!-- FIXME: Borken loading button -->
+
             <button
               type="submit"
               id="submit-btn"
               class="form__button form__button--submit">
-              Create
+              <span class="form__button--fetching-text">Create</span>
             </button>
+
             <button
               type="button"
               id="download-btn"

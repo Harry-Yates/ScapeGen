@@ -23,23 +23,22 @@ document
     toggleOverlay(false);
 
     imageGenerator.style.background = "black";
-    outputImgContainer.innerHTML = '<div class="loading">Loading...</div>';
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Fetching...";
     submitBtn.classList.add("form__button--fetching");
-    submitBtn.classList.add("disabled-text");
+    submitBtn.innerHTML =
+      '<span class="form__button--fetching-text">Generating Image ...</span>';
+    submitBtn.classList.add("form__button--fetching");
 
     const prompt = instructionInput.value;
     const size = sizeSelect.value;
     const style = styleSelect.value;
     await generateImage(prompt, size, style);
 
-    submitBtn.disabled = false;
-    submitBtn.textContent = "Create";
-    submitBtn.classList.remove("form__button--fetching");
-    submitBtn.classList.remove("disabled-text");
     toggleOverlay(true);
+
+    submitBtn.innerHTML =
+      '<span class="form__button--fetching-text">Create</span>';
+    submitBtn.classList.remove("form__button--fetching");
   });
 
 async function generateImage(prompt, size, style) {

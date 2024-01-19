@@ -1,3 +1,25 @@
+/* Variables */
+:root {
+  --primary-background-color: rgba(255, 255, 255, 0.9);
+  --secondary-background-color: rgba(43, 40, 40, 0.4);
+  --dark-background-color: rgb(0, 0, 0);
+
+  --text-color: #fff;
+
+  --button-bg-color: #f3722c;
+
+  /* --loading-button-bg-color: #139059;
+  --loading-button-bg-color-alt: #05a067; */
+
+  --loading-button-bg-color: #0077b6;
+  --loading-button-bg-color-alt: #00b4d8;
+
+  --download-button-bg-color: #f94144;
+
+  --gradient-start-color: rgba(0, 0, 0, 0.3);
+  --gradient-end-color: rgba(0, 0, 0, 1);
+}
+
 /* Reset */
 *,
 *::before,
@@ -11,13 +33,15 @@ html {
   margin: 0;
   font-family: Arial, sans-serif;
   font-size: 12px;
+  background-color: black;
+  background-color: var(--dark-background-color);
 }
 
 /* Header styles */
 .header {
   text-align: center;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--primary-background-color);
   position: absolute;
   right: 0;
   z-index: 1;
@@ -58,8 +82,8 @@ html {
   left: 0;
   background: radial-gradient(
     circle,
-    rgba(0, 0, 0, 0.3) 30%,
-    rgba(0, 0, 0, 1) 100%
+    var(--gradient-start-color) 30%,
+    var(--gradient-end-color) 100%
   );
   z-index: 0;
 }
@@ -75,12 +99,12 @@ html {
   z-index: 1;
 }
 
-/* Toolbox styles */
+/* TOOLBOX  */
 .tool-box {
   position: absolute;
   top: 20px;
   left: 20px;
-  background-color: rgba(43, 40, 40, 0.7);
+  background-color: var(--secondary-background-color);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -95,7 +119,7 @@ html {
 .form__label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: var(--text-color);
 }
 
 .form__textarea,
@@ -112,18 +136,9 @@ html {
   padding: 0.75rem;
   border: none;
   border-radius: 4px;
-  color: #fff;
-  background-color: #ea8818;
+  color: var(--text-color);
+  background-color: var(--button-bg-color);
   cursor: pointer;
-}
-
-.form__button--fetching {
-  background-color: #a8a8a8;
-  cursor: not-allowed;
-}
-
-.disabled-text {
-  color: #6c757d;
 }
 
 .form__button--submit {
@@ -132,13 +147,12 @@ html {
 
 .form__button--download {
   display: none;
-  background-color: #28a745;
+  background-color: var(--download-button-bg-color);
 }
 
 /* Footer styles */
 .footer {
   padding: 1rem;
-  /* background-color: rgba(255, 255, 255, 0.9); */
   background-color: transparent;
   position: absolute;
   bottom: 0;
@@ -148,5 +162,52 @@ html {
 
 .footer__text {
   margin: 0;
-  color: #fff;
+  color: var(--text-color);
+}
+
+/* Loader button styles */
+.form__button--fetching {
+  display: block;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: wait;
+}
+
+@keyframes load {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1.75rem);
+  }
+}
+
+.form__button--fetching::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120rem;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--loading-button-bg-color)
+    repeating-linear-gradient(
+      60deg,
+      transparent,
+      transparent 0.75rem,
+      var(--loading-button-bg-color-alt) 0.75rem,
+      var(--loading-button-bg-color-alt) 1.5rem
+    );
+
+  animation: load 1s infinite linear;
+}
+
+.form__button--fetching-text {
+  position: relative;
+  z-index: 1;
+  display: block;
 }
