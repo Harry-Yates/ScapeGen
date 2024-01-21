@@ -127,11 +127,12 @@ html {
   width: 100%;
   padding: 0.5rem;
   border-radius: 4px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--text-color);
 }
 
 .form__textarea {
   height: 18rem;
+  background: var(--primary-background-color);
 }
 
 .form__button {
@@ -177,8 +178,22 @@ html {
   width: 100%;
   padding: 0.75rem;
   border-radius: 4px;
-  color: #ffffff;
+  color: var(--text-color);
   cursor: wait;
+}
+
+.form__select {
+  -webkit-appearance: none; /* Safari and Chrome */
+  -moz-appearance: none; /* Firefox */
+  appearance: none; /* Standard syntax */
+
+  background: var(--primary-background-color);
+  border: 1px solid var(--text-color);
+  border-radius: 4px;
+  padding: 0.5rem;
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
 }
 
 @keyframes load {
@@ -214,4 +229,13 @@ html {
   position: relative;
   z-index: 1;
   display: block;
+}
+
+/* iOS override */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .form__select,
+  .form__select:after {
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
 }
